@@ -1,0 +1,194 @@
+{{define "game-grid.html"}}
+<!-- Popular Games Component -->
+<div class="container mx-auto my-8">
+    <div class="mb-4">
+        <h2 class="text-xl font-semibold text-orange-500">Game Popular</h2>
+        <div class="font-medium">Trending Sekarang</div>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Game Card 1 -->
+        <a href="#" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition-shadow">
+            <div class="relative h-24 bg-gradient-to-r from-orange-500 to-orange-400">
+                <div class="absolute inset-0 flex items-center px-4">
+                    <img src="https://via.placeholder.com/60" alt="Black Clover" class="w-12 h-12 mr-3 rounded">
+                    <div>
+                        <div class="font-medium text-white">Black Clover</div>
+                        <div class="text-xs text-white/80">Bandai Namco</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Game Card 2 -->
+        <a href="#" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition-shadow">
+            <div class="relative h-24 bg-gradient-to-r from-orange-500 to-orange-400">
+                <div class="absolute inset-0 flex items-center px-4">
+                    <img src="https://via.placeholder.com/60" alt="Arena Breakout" class="w-12 h-12 mr-3 rounded">
+                    <div>
+                        <div class="font-medium text-white">Arena Breakout</div>
+                        <div class="text-xs text-white/80">Tencent Games</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Game Card 3 -->
+        <a href="#" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition-shadow">
+            <div class="relative h-24 bg-gradient-to-r from-orange-500 to-orange-400">
+                <div class="absolute inset-0 flex items-center px-4">
+                    <img src="https://via.placeholder.com/60" alt="Free Fire" class="w-12 h-12 mr-3 rounded">
+                    <div>
+                        <div class="font-medium text-white">Free Fire</div>
+                        <div class="text-xs text-white/80">Garena</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Game Card 4 -->
+        <a href="#" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition-shadow">
+            <div class="relative h-24 bg-gradient-to-r from-orange-500 to-orange-400">
+                <div class="absolute inset-0 flex items-center px-4">
+                    <img src="https://via.placeholder.com/60" alt="Growtopia" class="w-12 h-12 mr-3 rounded">
+                    <div>
+                        <div class="font-medium text-white">Growtopia</div>
+                        <div class="text-xs text-white/80">Ubisoft</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- Category Tabs -->
+    <div class="flex flex-wrap gap-2 mt-6 mb-4">
+        <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">Semua</button>
+        <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">Game</button>
+        <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">Entertainment</button>
+        <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">Voucher</button>
+    </div>
+</div>
+
+<!-- Mobile Games Grid Component -->
+<div class="container mx-auto my-8">
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold">Mobile Game</h2>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Game 1 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=PUBG" alt="PUBG Mobile" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        PUBG MOBILE
+                    </button>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Game 2 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=StarRail" alt="Honkai Star Rail" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        STAR RAIL
+                    </button>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Game 3 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=StumbleGuys" alt="Stumble Guys" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        STUMBLE GUYS
+                    </button>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Game 4 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=Valorant" alt="Valorant" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        VALORANT
+                    </button>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Game 5 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=Pixel+Worlds" alt="Pixel Worlds" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        PIXEL WORLDS
+                    </button>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- Entertainment Section -->
+<div class="container mx-auto my-8">
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold">Entertainment</h2>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Entertainment 1 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=TikTok" alt="TikTok" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        TIKTOK
+                    </button>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Entertainment 2 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=Viu" alt="Viu" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        VIU
+                    </button>
+                </div>
+            </div>
+        </a>
+        
+        <!-- Entertainment 3 -->
+        <a href="#" class="flex flex-col items-center">
+            <div class="relative w-full aspect-square rounded-lg overflow-hidden mb-2 shadow-md">
+                <img src="https://via.placeholder.com/200?text=iQIYI" alt="iQIYI" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <button class="w-full bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600 transition">
+                        iQIYI
+                    </button>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- Voucher Section -->
+<div class="container mx-auto my-8">
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold">Beli Kode Voucher</h2>
+    </div>
+    
+    <!-- Add voucher content here -->
+</div>
+{{end}} 

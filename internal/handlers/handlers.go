@@ -4,7 +4,9 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
-	"path/filepath"
+
+	"github.com/rearmid/topup-game/internal/handlers/components"
+	"github.com/rearmid/topup-game/internal/handlers/registry"
 
 	"github.com/pocketbase/pocketbase/apis"
 	"github.com/pocketbase/pocketbase/core"
@@ -39,42 +41,18 @@ func (h *handler) Register(se *core.ServeEvent) error {
 	// Set up the landing page group
 	landingGroup := se.Router.Group(publicUser)
 
-	registryLoader := &registryLoaderImpl{
-		registry: h.registry,
-		logger:   h.cfg.Logger(),
-	}
+	registryLoader := registry.NewLoader(h.registry, h.cfg.Logger())
+	componentLoader := components.NewHomePageComponent(registryLoader)
 
-	homePage := NewHomePage(registryLoader)
+	homePage := NewHomePage(componentLoader)
+
 	landingGroup.GET("/", homePage.Render)
 
 	return se.Next()
 }
 
-type registryLoader interface {
-	LoadFiles(filenames ...string) *template.Renderer
-}
-
-type registryLoaderImpl struct {
-	logger   *slog.Logger
-	registry *template.Registry
-}
-
-func (r *registryLoaderImpl) LoadFiles(filenames ...string) *template.Renderer {
-	// get current directory
-	dir, err := os.Getwd()
-	slog.Info("dir: ", "dir", dir)
-	if err != nil {
-		r.logger.Error("Failed to get current directory", "error", err)
-		return nil
-	}
-
-	for i, filename := range filenames {
-		filenames[i] = filepath.Join(dir, filename)
-	}
-
-	slog.Info("filenames: ", "filenames", filenames)
-
-	return r.registry.LoadFiles(filenames...)
+type ComponentLoader interface {
+	Load() *template.Renderer
 }
 
 type Configurator interface {

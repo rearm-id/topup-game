@@ -11,15 +11,9 @@ type HomePage struct {
 	view *template.Renderer
 }
 
-func NewHomePage(registry registryLoader) *HomePage {
+func NewHomePage(componentLoader ComponentLoader) *HomePage {
 	return &HomePage{
-		view: registry.LoadFiles(
-			"./views/layouts/base.html",
-			"./views/components/navigation.html",
-			"./views/components/carousel.html",
-			"./views/components/game-grid.html",
-			"./views/home/home.html",
-		),
+		view: componentLoader.Load(),
 	}
 }
 

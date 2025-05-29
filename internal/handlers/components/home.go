@@ -34,6 +34,7 @@ func (h *homePageComponent) Components() []string {
 		"./views/components/carousel.html",
 		"./views/components/game-grid.html",
 		"./views/components/quick-categories.html",
+		"./views/components/game-categories-grid.html",
 		"./views/home/home.html",
 	}
 }

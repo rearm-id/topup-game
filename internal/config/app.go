@@ -1,9 +1,25 @@
 package config
 
-type AppConfig struct {
-	Alpine *Alpine
+import (
+	"log/slog"
+)
+
+func Load(app Server) *AppConfig {
+	return &AppConfig{
+		alpine: &Alpine{},
+		logger: app.Logger(),
+	}
 }
 
-func Load() *AppConfig {
-	return &AppConfig{}
+type AppConfig struct {
+	alpine *Alpine
+	logger *slog.Logger
+}
+
+func (a *AppConfig) Logger() *slog.Logger {
+	return a.logger
+}
+
+type Server interface {
+	Logger() *slog.Logger
 }

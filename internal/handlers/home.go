@@ -5,24 +5,27 @@ import (
 
 	"github.com/pocketbase/pocketbase/core"
 	"github.com/pocketbase/pocketbase/tools/template"
+	"github.com/rearmid/topup-game/internal/handlers/mocks"
 )
 
 type HomePage struct {
+	cfg  Configurator
 	view *template.Renderer
 }
 
-func NewHomePage(componentLoader ComponentLoader) *HomePage {
+func NewHomePage(cfg Configurator, componentLoader ComponentLoader) *HomePage {
 	return &HomePage{
+		cfg:  cfg,
 		view: componentLoader.Load(),
 	}
 }
 
 func (h *HomePage) Render(e *core.RequestEvent) error {
-
 	data := map[string]any{
 		"title":             "Home",
-		"alpineAjaxVersion": "0.12.2",
-		"alpineVersion":     "3.14.1",
+		"alpineAjaxVersion": h.cfg.GetAlpine().AjaxVersion,
+		"alpineVersion":     h.cfg.GetAlpine().Version,
+		"categories":        mocks.Categories,
 	}
 
 	html, err := h.view.Render(data)

@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/rearmid/topup-game/internal/config"
 	"github.com/rearmid/topup-game/internal/handlers/components"
 	"github.com/rearmid/topup-game/internal/handlers/registry"
 
@@ -44,7 +45,7 @@ func (h *handler) Register(se *core.ServeEvent) error {
 	registryLoader := registry.NewLoader(h.registry, h.cfg.Logger())
 	componentLoader := components.NewHomePageComponent(registryLoader)
 
-	homePage := NewHomePage(componentLoader)
+	homePage := NewHomePage(h.cfg, componentLoader)
 
 	landingGroup.GET("/", homePage.Render)
 
@@ -57,4 +58,6 @@ type ComponentLoader interface {
 
 type Configurator interface {
 	Logger() *slog.Logger
+
+	GetAlpine() *config.Alpine
 }

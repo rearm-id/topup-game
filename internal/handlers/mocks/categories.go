@@ -104,4 +104,15 @@ var Categories = []map[string]any{
 		"Image": "honkai-star-rail.png",
 		"Color": "blue-100",
 	},
+
+	{
+		"Name":  "YYYY",
+		"Image": "yyyy.png",
+		"Color": "yellow-400",
+	},
+	{
+		"Name":  "AAAA",
+		"Image": "aaa.png",
+		"Color": "blue-100",
+	},
 }

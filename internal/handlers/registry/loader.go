@@ -23,17 +23,18 @@ type loaderImpl struct {
 func (r *loaderImpl) Load(filenames ...string) *template.Renderer {
 	// get current directory
 	dir, err := os.Getwd()
-	slog.Info("dir: ", "dir", dir)
 	if err != nil {
 		r.logger.Error("Failed to get current directory", "error", err)
 		return nil
 	}
 
+	r.logger.Info("dir: ", "dir", dir)
+
 	for i, filename := range filenames {
 		filenames[i] = filepath.Join(dir, filename)
 	}
 
-	slog.Info("filenames: ", "filenames", filenames)
+	r.logger.Info("filenames: ", "filenames", filenames)
 
 	return r.registry.LoadFiles(filenames...)
 }

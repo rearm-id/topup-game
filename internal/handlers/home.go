@@ -23,9 +23,15 @@ func NewHomePage(cfg Configurator, componentLoader ComponentLoader) *HomePage {
 func (h *HomePage) Render(e *core.RequestEvent) error {
 	data := map[string]any{
 		"title":             "Home",
+		"copyright":         "© 2025 GameTopUp. All rights reserved.",
 		"alpineAjaxVersion": h.cfg.GetAlpine().AjaxVersion,
 		"alpineVersion":     h.cfg.GetAlpine().Version,
 		"categories":        mocks.Categories,
+		"MobileGames":       mocks.MobileGames,
+		"GiftCards":         mocks.GiftCards,
+		"GameTopUps":        mocks.GameTopUps,
+		"Accounts":          mocks.Accounts,
+		"Others":            mocks.Others,
 	}
 
 	html, err := h.view.Render(data)

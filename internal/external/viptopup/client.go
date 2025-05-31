@@ -28,6 +28,9 @@ func New(apiID, apiKey string, opts ...Option) *Client {
 		opt(client)
 	}
 
+	// debug
+	client.logger.Info("VIPTopup client created", "api_id", apiID, "api_key", apiKey, "signature", client.signature)
+
 	return client
 }
 

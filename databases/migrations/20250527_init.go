@@ -1,6 +1,8 @@
 package migrations
 
 import (
+	"context"
+
 	"github.com/pocketbase/pocketbase/core"
 	m "github.com/pocketbase/pocketbase/migrations"
 )
@@ -26,6 +28,11 @@ func init() {
 			Values: []string{"active", "inactive"},
 		})
 
+		ctx := context.Background()
+		if err := app.SaveWithContext(ctx, gamesCollection); err != nil {
+			return err
+		}
+
 		// game items
 		gameItemsCollection := core.NewBaseCollection("game_items")
 
@@ -43,11 +50,11 @@ func init() {
 			Name:   "status",
 			System: true,
 			Values: []string{"active", "inactive"},
-		}, &core.RelationField{
-			Name:         "game",
-			System:       true,
-			CollectionId: "games",
 		})
+
+		if err := app.SaveWithContext(ctx, gameItemsCollection); err != nil {
+			return err
+		}
 
 		// transactions
 		transactionsCollection := core.NewBaseCollection("transactions")
@@ -65,11 +72,6 @@ func init() {
 		}, &core.JSONField{
 			Name:   "payment_metadata",
 			System: true,
-		}, &core.RelationField{
-			Name:         "user",
-			System:       true,
-			CollectionId: "users",
-			Required:     false,
 		}, &core.SelectField{
 			Name:   "payment_status",
 			System: true,
@@ -80,10 +82,12 @@ func init() {
 			Values: []string{"pending", "completed", "failed"},
 		})
 
+		if err := app.SaveWithContext(ctx, transactionsCollection); err != nil {
+			return err
+		}
+
 		return nil
 	}, func(app core.App) error {
-		// add down queries...
-
 		return nil
 	})
 }
